@@ -4,52 +4,7 @@
   
   <url>
     <loc>/</loc>
-    <lastmod>2019-10-28T21:13:14-05:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/bookdown/</loc>
-    <lastmod>2019-10-28T21:13:14-05:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/</loc>
-    <lastmod>2019-10-28T21:13:14-05:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/facotrs/</loc>
-    <lastmod>2019-10-28T21:13:14-05:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/forcats/</loc>
-    <lastmod>2019-10-28T21:13:14-05:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/post/</loc>
-    <lastmod>2019-10-28T21:13:14-05:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/r/</loc>
-    <lastmod>2019-10-28T21:13:14-05:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/r-markdown/</loc>
-    <lastmod>2019-10-28T21:13:14-05:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/</loc>
-    <lastmod>2019-10-28T21:13:14-05:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/2019/10/28/wetterdatenanalyse/</loc>
-    <lastmod>2019-10-28T21:13:14-05:00</lastmod>
+    <lastmod>2016-12-30T21:49:57-07:00</lastmod>
   </url>
   
   <url>
@@ -58,8 +13,18 @@
   </url>
   
   <url>
+    <loc>/post/</loc>
+    <lastmod>2016-12-30T21:49:57-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/about/</loc>
     <lastmod>2016-05-05T21:48:51-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/</loc>
+    <lastmod>2015-07-23T21:13:14-05:00</lastmod>
   </url>
   
   <url>
@@ -73,7 +38,22 @@
   </url>
   
   <url>
+    <loc>/categories/r/</loc>
+    <lastmod>2015-07-23T21:13:14-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/r-markdown/</loc>
+    <lastmod>2015-07-23T21:13:14-05:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/tags/regression/</loc>
+    <lastmod>2015-07-23T21:13:14-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
     <lastmod>2015-07-23T21:13:14-05:00</lastmod>
   </url>
   
