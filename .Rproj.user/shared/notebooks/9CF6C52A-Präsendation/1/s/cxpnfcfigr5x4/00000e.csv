@@ -1,2 +1,0 @@
-"0","ggplot(relig, aes(main.pressure, fct_infreq(weather_description, main.pressure))) +"
-"0","  geom_point()"

@@ -1,6 +1,6 @@
 "0","str(wetter_forecast$weather[][[2]]$main)"
 "1"," chr "
-"1","""Clouds"""
+"1","""Rain"""
 "1","
 "
 "0","for (i in 1:nrow(wetter_forecast)){"

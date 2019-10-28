@@ -1,20 +1,25 @@
 ---
 title: "Wetterdatenanalyse"
 output: html_document
+author: "Frida Gomam"
+date: 2019-10-28T21:13:14-05:00
+categories: ["R"]
+tags: ["R Markdown", "facotrs", "forcats", "bookdown"]
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 
+#import all libs
 library(owmr)
 library(knitr)
 library(tidyverse)
 library(forcats)
 library(ggplot2)
 library(anytime)
-owmr_settings("cc96e5f5fcd56d9fa804f26c4ae1f5c2")
 
-
+#
+owmr_settings("")
 ```
 Hier werden die Wetterdaten von Kiel geladen.
 Das Wetter wird im 3h Rythmus vorhergesagt.
@@ -68,7 +73,7 @@ ggplot(relig, aes(main.temp, weather_description)) + geom_point()
 
 ```
 ```{r, echo=FALSE}
-ggplot(relig, aes(main.pressure, fct_infreq(weather_description, main.pressure))) +
+ggplot(relig, aes(main.pressure, fct_reorder(weather_description, main.pressure))) +
   geom_point()
 
 ```

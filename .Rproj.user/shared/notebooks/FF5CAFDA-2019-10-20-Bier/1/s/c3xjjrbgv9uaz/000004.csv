@@ -1,8 +1,0 @@
-"0","wetter_liste$weather_main <- as.factor(wetter_liste$weather_main)"
-"0","wether <- wetter_liste %>% mutate(weather_main = fct_recode(weather_main, ""Bad"" = ""Rain"", ""miad"" = ""Clouds"", ""Good"" = ""Clear"")) %>% count(weather_main)"
-"0","wether_coll <- wetter_liste %>% mutate(weather_main = fct_collapse(weather_main, "
-"0","                                                                   good = c(""Clear""),"
-"0","                                                                   baad = c(""Rain"", ""Clouds"")))"
-"0","wetter_liste %>%"
-"0","  mutate(weather_main = fct_lump(weather_main, n = 2)) %>%"
-"0","  count(weather_main)"
