@@ -12,7 +12,7 @@ library(tidyverse)
 library(forcats)
 library(ggplot2)
 library(anytime)
-owmr_settings("cc96e5f5fcd56d9fa804f26c4ae1f5c2")
+owmr_settings("meingeheimespasswort")
 
 
 ```
