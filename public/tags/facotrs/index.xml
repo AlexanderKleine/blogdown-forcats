@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>R Markdown on A Hugo website</title>
-    <link>/tags/r-markdown/</link>
-    <description>Recent content in R Markdown on A Hugo website</description>
+    <title>facotrs on A Hugo website</title>
+    <link>/tags/facotrs/</link>
+    <description>Recent content in facotrs on A Hugo website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 28 Oct 2019 21:13:14 -0500</lastBuildDate>
     
-	<atom:link href="/tags/r-markdown/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/facotrs/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -19,15 +19,6 @@
       <guid>/2019/10/28/wetterdatenanalyse/</guid>
       <description>Via the package owmr from the open weather map we now get a record with 40 entries for Kiel. The entries show the weather data at a distance of 3h each in the future.
 ## List of 1## $ :&amp;#39;data.frame&amp;#39;: 1 obs. of 4 variables:## ..$ id : int 800## ..$ main : chr &amp;quot;Clear&amp;quot;## ..$ description: chr &amp;quot;clear sky&amp;quot;## ..$ icon : chr &amp;quot;01n&amp;quot;As we see here, the exciting values are still hidden in a list within the dataframe.</description>
-    </item>
-    
-    <item>
-      <title>Hello R Markdown</title>
-      <link>/2015/07/23/hello-r-markdown/</link>
-      <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
-      
-      <guid>/2015/07/23/hello-r-markdown/</guid>
-      <description></description>
     </item>
     
   </channel>
