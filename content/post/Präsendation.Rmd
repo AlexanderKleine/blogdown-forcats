@@ -41,6 +41,7 @@ for (i in 1:nrow(wetter_forecast)){
   wetter_forecast[i, "weather_id"] <- wetter_forecast$weather[][[i]]$id
 }
 view(wetter_forecast)
+str(wetter_forecast$weather_main[2])
 
 ```
 In den Datensatz der erzeugt wurde gibt es nun alle 3h ein Wetterupdate.

@@ -1,0 +1,31 @@
+---
+title: "Wetterdatenanalyse"
+output: html_document
+author: "Benjamin Haberkorn, Alexander Kleine"
+date: 2019-10-28T21:13:14-05:00
+categories: ["R"]
+tags: ["R Markdown", "facotrs", "forcats", "bookdown"]
+---
+
+
+
+<p>Via the package owmr from the open weather map we now get a record with 40 entries for Kiel. The entries show the weather data at a distance of 3h each in the future.</p>
+<pre><code>## List of 1
+##  $ :&#39;data.frame&#39;:    1 obs. of  4 variables:
+##   ..$ id         : int 800
+##   ..$ main       : chr &quot;Clear&quot;
+##   ..$ description: chr &quot;clear sky&quot;
+##   ..$ icon       : chr &quot;01n&quot;</code></pre>
+<p>As we see here, the exciting values are still hidden in a list within the dataframe. In order to add the data of the list in detail to the data frame, the record must be gone through and the weather data added to the respective tuple.</p>
+<pre><code>##  chr &quot;Rain&quot;</code></pre>
+<p>In den Datensatz der erzeugt wurde gibt es nun alle 3h ein Wetterupdate.
+Es müssen nun noch die beschreibungen der Wetterdaten von einer Liste zu einem Eintrag in die Tabelle umgewandelt werden.</p>
+<p>Die Daten waren bisher nur Strings. Jetzt kann ich der Auswertung aber nicht einfach gesagt werden das die Strings den
+gleichen Wert repräsentieren obwohl sie gleich heißen. Auch kann man keine logische reihenfolge hinterlegen.
+Aus diesem Grund haben wir hier mögliche Ereignisse als Factor dargestellt.</p>
+<pre><code>##  int [1:40] 1572264000 1572274800 1572285600 1572296400 1572307200 1572318000 1572328800 1572339600 1572350400 1572361200 ...</code></pre>
+<pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</code></pre>
+<p><img src="/post/Präsendation_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p><img src="/post/Präsendation_files/figure-html/unnamed-chunk-6-1.png" width="672" />
+<img src="/post/Präsendation_files/figure-html/unnamed-chunk-7-1.png" width="672" />
+<img src="/post/Präsendation_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
