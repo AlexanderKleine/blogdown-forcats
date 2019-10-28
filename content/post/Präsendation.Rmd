@@ -80,6 +80,10 @@ ggplot(relig, aes(main.pressure, fct_reorder(weather_description, main.pressure)
   geom_point()
 
 ```
+
+Hier werden ein paar plots rausgehauen
+!
+
 ```{r, echo=FALSE}
 ggplot(relig, aes(main.pressure, fct_infreq(weather_description))) +
   geom_point()
