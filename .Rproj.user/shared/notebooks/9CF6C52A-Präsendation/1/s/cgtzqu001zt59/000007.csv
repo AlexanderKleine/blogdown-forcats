@@ -1,3 +1,0 @@
-"0","wetter_forecast$weather_main <- as.factor(wetter_forecast$weather_main)"
-"0","wetter_forecast$weather_description <- as.factor(wetter_forecast$weather_description)"
-"0","wetter_forecast$weather_id <- as.factor(wetter_forecast$weather_id)"

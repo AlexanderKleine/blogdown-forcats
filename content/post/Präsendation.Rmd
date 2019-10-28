@@ -1,7 +1,7 @@
 ---
 title: "Wetterdatenanalyse"
 output: html_document
-author: "Frida Gomam"
+author: "Benjamin Haberkorn, Alexander Kleine"
 date: 2019-10-28T21:13:14-05:00
 categories: ["R"]
 tags: ["R Markdown", "facotrs", "forcats", "bookdown"]
@@ -17,28 +17,30 @@ library(tidyverse)
 library(forcats)
 library(ggplot2)
 library(anytime)
+library(Hmisc)
 
 #
-owmr_settings("")
+owmr_settings("cc96e5f5fcd56d9fa804f26c4ae1f5c2")
 ```
-Hier werden die Wetterdaten von Kiel geladen.
-Das Wetter wird im 3h Rythmus vorhergesagt.
+Via the package owmr from the open weather map we now get a record with 40 entries for Kiel. The entries show the weather data at a distance of 3h each in the future.
 
 ```{r, echo=FALSE}
-wetter_kiel <- get_forecast("Kiel", cnt = 99, units = "metric")
+wetter_kiel <- get_forecast("Kiel", units = "metric")
 wetter_forecast <- wetter_kiel$list
-test <- head(wetter_forecast["weather"],1)
+view(wetter_forecast)
+str(wetter_forecast$weather[5])
+
 ```
+As we see here, the exciting values are still hidden in a list within the dataframe. In order to add the data of the list in detail to the data frame, the record must be gone through and the weather data added to the respective tuple.
+
 ```{r, echo=FALSE}
-str(wetter_forecast$weather[][[2]]$main)
 
 for (i in 1:nrow(wetter_forecast)){
-  #str(anytime(wetter_forecast$dt))
-  #wetter_forecast[i, "timestamp"] <- anytime(wetter_forecast[i]$dt)
   wetter_forecast[i, "weather_main"] <- wetter_forecast$weather[][[i]]$main
   wetter_forecast[i, "weather_description"] <- wetter_forecast$weather[][[i]]$description
   wetter_forecast[i, "weather_id"] <- wetter_forecast$weather[][[i]]$id
 }
+view(wetter_forecast)
 
 ```
 In den Datensatz der erzeugt wurde gibt es nun alle 3h ein Wetterupdate.
