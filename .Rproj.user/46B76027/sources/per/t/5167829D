@@ -1,0 +1,29 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1571664258970.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "5167829D",
+    "lastKnownWriteTime" : 1571660431,
+    "last_content_update" : 1571664258970,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "1962CC8E",
+        "caption" : "relig",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=relig&cache_key=1962CC8E",
+        "displayedObservations" : "6",
+        "environment" : "",
+        "object" : "relig",
+        "preview" : "0",
+        "totalObservations" : "6",
+        "variables" : "4"
+    },
+    "relative_order" : 5,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_dataframe"
+}

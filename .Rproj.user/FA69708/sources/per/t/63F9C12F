@@ -1,0 +1,29 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1571589072656.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "63F9C12F",
+    "lastKnownWriteTime" : 3976785546167280225,
+    "last_content_update" : 1571589072656,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "C874BA09",
+        "caption" : "wetter_liste",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=wetter_liste&cache_key=C874BA09",
+        "displayedObservations" : "5",
+        "environment" : "",
+        "object" : "wetter_liste",
+        "preview" : "0",
+        "totalObservations" : "5",
+        "variables" : "16"
+    },
+    "relative_order" : 6,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_dataframe"
+}

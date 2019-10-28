@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1571658646152.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "F7444FE",
+    "lastKnownWriteTime" : -9223356640660176647,
+    "last_content_update" : 1571658646152,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "id" : "5493b451256f43eda8f81604b7fd9d33",
+        "name" : "bier",
+        "title" : "bier"
+    },
+    "relative_order" : 6,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "object_explorer"
+}

@@ -1,0 +1,14 @@
+"0","knitr::opts_chunk$set(echo = TRUE)"
+"0","library(owmr)"
+"0","library(knitr)"
+"0","library(tidyverse)"
+"0","library(forcats)"
+"0","library(ggplot2)"
+"0","library(anytime)"
+"0","owmr_settings(""cc96e5f5fcd56d9fa804f26c4ae1f5c2"")"
+"2","It is recommended that you store your api key in an environment variable called OWM_API_KEY.
+"
+"0","ggplot2::theme(theme_classic)"
+"2","Error in (function (el, elname)  : 
+  Element line must be a element_line object.
+"

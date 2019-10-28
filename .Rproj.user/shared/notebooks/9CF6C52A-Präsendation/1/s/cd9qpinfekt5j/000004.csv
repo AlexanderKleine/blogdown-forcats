@@ -1,0 +1,3 @@
+"0","wetter_kiel <- get_forecast(""Kiel"", cnt = 99, units = ""metric"")"
+"0","wetter_forecast <- wetter_kiel$list"
+"0","test <- head(wetter_forecast[""weather""],1)"

@@ -1,0 +1,29 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1571595102418.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "D20E4D32",
+    "lastKnownWriteTime" : 12666850700099701,
+    "last_content_update" : 1571595102418,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "B897FAF",
+        "caption" : "wether_coll",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=wether_coll&cache_key=B897FAF",
+        "displayedObservations" : "5",
+        "environment" : "",
+        "object" : "wether_coll",
+        "preview" : "0",
+        "totalObservations" : "5",
+        "variables" : "16"
+    },
+    "relative_order" : 9,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_dataframe"
+}

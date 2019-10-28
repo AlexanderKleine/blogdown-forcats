@@ -1,0 +1,29 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1571593941439.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "596B5248",
+    "lastKnownWriteTime" : 12666850700099701,
+    "last_content_update" : 1571593941439,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "139A0DC8",
+        "caption" : "wether",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=wether&cache_key=139A0DC8",
+        "displayedObservations" : "3",
+        "environment" : "",
+        "object" : "wether",
+        "preview" : "0",
+        "totalObservations" : "3",
+        "variables" : "2"
+    },
+    "relative_order" : 8,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_dataframe"
+}

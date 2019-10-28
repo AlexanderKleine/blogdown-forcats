@@ -1,0 +1,8 @@
+"0","relig <- wetter_forecast %>%"
+"0","  group_by(weather_description) %>%"
+"0","  summarise("
+"0","    main.temp = mean(main.temp, na.rm = TRUE),"
+"0","    main.pressure = mean(main.pressure, na.rm = TRUE),"
+"0","    n = n()"
+"0","  )"
+"0","ggplot(relig, aes(main.temp, weather_description)) + geom_point()"
