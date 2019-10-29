@@ -94,7 +94,7 @@ As the secound example take a look at the effect of the fct_infreq() command.
 
 
 ```{r, echo=FALSE}
-ggplot(weather_df, aes(main.pressure, fct_infreq(weather_description))) +
+ggplot(weather_df, aes(main.temp, fct_infreq(weather_description))) +
   geom_point()
 
 ```
