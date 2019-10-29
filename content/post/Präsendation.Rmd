@@ -1,5 +1,5 @@
 ---
-title: "Wetterdatenanalyse"
+title: "Forcats Weather"
 output: html_document
 author: "Benjamin Haberkorn, Alexander Kleine"
 date: 2019-10-28T21:13:14-05:00
@@ -7,7 +7,7 @@ categories: ["R"]
 tags: ["R Markdown", "factors", "forcats", "bookdown"]
 ---
 
-```{r setup, include=FALSE}
+```{r setup}
 knitr::opts_chunk$set(echo = TRUE)
 
 #Please load all the required packages
@@ -24,7 +24,7 @@ owmr_settings("cc96e5f5fcd56d9fa804f26c4ae1f5c2")
 ```
 Via the package "owmr" from the open weather map we now get a record with 40 entries for the city Kiel. The entries show the weather forecast at a interval of 3h which enabls you to make a prediction for the upcoming 5 days. 
 
-```{r, echo=FALSE}
+```{r}
 wetter_kiel <- get_forecast("Kiel", units = "metric")
 wetter_forecast <- wetter_kiel$list
 
@@ -34,7 +34,7 @@ str(wetter_forecast$weather[5])
 ```
 As we can see, the exciting values are still hidden in a list within the data frame. In order to add the data of the list in detail to the data frame, the record must be gone through and the weather data added to the respective tuple.
 
-```{r, echo=FALSE}
+```{r}
 
 for (i in 1:nrow(wetter_forecast)){
   
@@ -54,7 +54,7 @@ str(wetter_forecast$weather_main[2])
 For further data manipulations we have to convert the current string data type of "weather_main", "weather_discription" and "weather_id" into factors.
 
 
-```{r, echo=FALSE}
+```{r}
 wetter_forecast$weather_main <- as.factor(wetter_forecast$weather_main)
 
 wetter_forecast$weather_description <- as.factor(wetter_forecast$weather_description)
@@ -65,7 +65,7 @@ str(wetter_forecast$weather_main)
 ```
 To illustrate the possible calculation within factors we are using a dot plot diagram by the “ggplot” package. Please feel free to get familiar with the following command while switching between "main.temp" and "main.pressure"
 
-```{r, echo=FALSE}
+```{r}
 
 weather_df <- wetter_forecast %>%
   group_by(weather_description) %>%
@@ -82,7 +82,7 @@ Due to the use of factors as a specific data structure we can now apply commands
 
 --> fct_reorder(): Reordering a factor by another variable
 
-```{r, echo=FALSE}
+```{r}
 ggplot(weather_df, aes(main.temp, fct_reorder(weather_description, main.temp))) +
   geom_point()
 
@@ -93,7 +93,7 @@ As the secound example take a look at the effect of the fct_infreq() command.
 
 
 
-```{r, echo=FALSE}
+```{r}
 ggplot(weather_df, aes(main.temp, fct_infreq(weather_description))) +
   geom_point()
 

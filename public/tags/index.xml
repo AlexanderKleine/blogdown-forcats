@@ -6,10 +6,46 @@
     <description>Recent content in Tags on Bookdown and Forcars</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>de-de</language>
-    <lastBuildDate>Thu, 23 Jul 2015 21:13:14 -0500</lastBuildDate>
+    <lastBuildDate>Mon, 28 Oct 2019 21:13:14 -0500</lastBuildDate>
     
 	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>bookdown</title>
+      <link>/tags/bookdown/</link>
+      <pubDate>Mon, 28 Oct 2019 21:13:14 -0500</pubDate>
+      
+      <guid>/tags/bookdown/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>factors</title>
+      <link>/tags/factors/</link>
+      <pubDate>Mon, 28 Oct 2019 21:13:14 -0500</pubDate>
+      
+      <guid>/tags/factors/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>forcats</title>
+      <link>/tags/forcats/</link>
+      <pubDate>Mon, 28 Oct 2019 21:13:14 -0500</pubDate>
+      
+      <guid>/tags/forcats/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>R Markdown</title>
+      <link>/tags/r-markdown/</link>
+      <pubDate>Mon, 28 Oct 2019 21:13:14 -0500</pubDate>
+      
+      <guid>/tags/r-markdown/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>plot</title>
@@ -17,15 +53,6 @@
       <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
       
       <guid>/tags/plot/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>R Markdown</title>
-      <link>/tags/r-markdown/</link>
-      <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
-      
-      <guid>/tags/r-markdown/</guid>
       <description></description>
     </item>
     

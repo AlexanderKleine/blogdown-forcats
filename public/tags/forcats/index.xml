@@ -12,13 +12,12 @@
     
     
     <item>
-      <title>Wetterdatenanalyse</title>
-      <link>/2019/10/28/wetterdatenanalyse/</link>
+      <title>Forcats Weather</title>
+      <link>/2019/10/28/forcats-weather/</link>
       <pubDate>Mon, 28 Oct 2019 21:13:14 -0500</pubDate>
       
-      <guid>/2019/10/28/wetterdatenanalyse/</guid>
-      <description>Via the package owmr from the open weather map we now get a record with 40 entries for Kiel. The entries show the weather data at a distance of 3h each in the future.
-## List of 1## $ :&amp;#39;data.frame&amp;#39;: 1 obs. of 4 variables:## ..$ id : int 800## ..$ main : chr &amp;quot;Clear&amp;quot;## ..$ description: chr &amp;quot;clear sky&amp;quot;## ..$ icon : chr &amp;quot;01n&amp;quot;As we see here, the exciting values are still hidden in a list within the dataframe.</description>
+      <guid>/2019/10/28/forcats-weather/</guid>
+      <description>knitr::opts_chunk$set(echo = TRUE)#Please load all the required packageslibrary(owmr)## owmr 0.8.1## another crazy way to talk to OpenWeatherMap&amp;#39;s API## Documentation: type ?owmr or https://crazycapivara.github.io/owmr/## Issues, notes and bleeding edge: https://github.com/crazycapivara/owmr/## ## It is recommended that you store your api key in an environment variable called OWM_API_KEY.library(knitr)library(tidyverse)## -- Attaching packages --------------------------------------------------------------------- tidyverse 1.2.1 --## v ggplot2 3.2.1 v purrr 0.3.2## v tibble 2.</description>
     </item>
     
   </channel>

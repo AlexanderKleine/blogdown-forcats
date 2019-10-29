@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>R on Bookdown and Forcars</title>
-    <link>/categories/r/</link>
-    <description>Recent content in R on Bookdown and Forcars</description>
+    <title>factors on Bookdown and Forcars</title>
+    <link>/tags/factors/</link>
+    <description>Recent content in factors on Bookdown and Forcars</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>de-de</language>
     <lastBuildDate>Mon, 28 Oct 2019 21:13:14 -0500</lastBuildDate>
     
-	<atom:link href="/categories/r/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/factors/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -18,15 +18,6 @@
       
       <guid>/2019/10/28/forcats-weather/</guid>
       <description>knitr::opts_chunk$set(echo = TRUE)#Please load all the required packageslibrary(owmr)## owmr 0.8.1## another crazy way to talk to OpenWeatherMap&amp;#39;s API## Documentation: type ?owmr or https://crazycapivara.github.io/owmr/## Issues, notes and bleeding edge: https://github.com/crazycapivara/owmr/## ## It is recommended that you store your api key in an environment variable called OWM_API_KEY.library(knitr)library(tidyverse)## -- Attaching packages --------------------------------------------------------------------- tidyverse 1.2.1 --## v ggplot2 3.2.1 v purrr 0.3.2## v tibble 2.</description>
-    </item>
-    
-    <item>
-      <title>Hello R Markdown</title>
-      <link>/2015/07/23/hello-r-markdown/</link>
-      <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
-      
-      <guid>/2015/07/23/hello-r-markdown/</guid>
-      <description></description>
     </item>
     
   </channel>

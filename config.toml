@@ -10,11 +10,11 @@ ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
     post = "/:year/:month/:day/:slug/"
 
 [[menu.main]]
-    name = "Bookdown"
+    name = "Blogdown"
     url = "https://blogdown.org"
 [[menu.main]]
     name = "Forcats"
-    url = "https://twitter.com/rstudio"
+    url = "https://forcats.tidyverse.org/"
 
 
 [params]
