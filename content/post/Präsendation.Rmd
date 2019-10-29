@@ -4,13 +4,13 @@ output: html_document
 author: "Benjamin Haberkorn, Alexander Kleine"
 date: 2019-10-28T21:13:14-05:00
 categories: ["R"]
-tags: ["R Markdown", "facotrs", "forcats", "bookdown"]
+tags: ["R Markdown", "factors", "forcats", "bookdown"]
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 
-#import all libs
+#Please load all the required packages
 library(owmr)
 library(knitr)
 library(tidyverse)
@@ -19,47 +19,70 @@ library(ggplot2)
 library(anytime)
 library(Hmisc)
 
-#
+#Please use your API key and save the key in an environment variable called OWM_API_KEY
+#Für was verwände ich eine environment variable??
 owmr_settings("cc96e5f5fcd56d9fa804f26c4ae1f5c2")
 ```
-Via the package owmr from the open weather map we now get a record with 40 entries for Kiel. The entries show the weather data at a distance of 3h each in the future.
+Via the package "owmr" from the open weather map we now get a record with 40 entries for the city Kiel. The entries show the weather forecast at a interval of 3h which enabls you to make a prediction for the upcoming 5 days. 
 
 ```{r, echo=FALSE}
 wetter_kiel <- get_forecast("Kiel", units = "metric")
 wetter_forecast <- wetter_kiel$list
+
 view(wetter_forecast)
 str(wetter_forecast$weather[5])
 
 ```
-As we see here, the exciting values are still hidden in a list within the dataframe. In order to add the data of the list in detail to the data frame, the record must be gone through and the weather data added to the respective tuple.
+As we can see, the exciting values are still hidden in a list within the data frame. In order to add the data of the list in detail to the data frame, the record must be gone through and the weather data added to the respective tuple.
+
+Für was benötigen wir "weather_id"??
 
 ```{r, echo=FALSE}
 
 for (i in 1:nrow(wetter_forecast)){
-  wetter_forecast[i, "weather_main"] <- wetter_forecast$weather[][[i]]$main
-  wetter_forecast[i, "weather_description"] <- wetter_forecast$weather[][[i]]$description
-  wetter_forecast[i, "weather_id"] <- wetter_forecast$weather[][[i]]$id
+  wetter_forecast[i, "weather_main"] <- 
+wetter_forecast$weather[][[i]]$main
+
+  wetter_forecast[i, "weather_description"] <-  wetter_forecast$weather[][[i]]$description
+  
+  wetter_forecast[i, "weather_id"] <- 
+wetter_forecast$weather[][[i]]$id
+  
 }
 view(wetter_forecast)
 str(wetter_forecast$weather_main[2])
 
 ```
+For further data manipulations we have to convert the current string data type of the columns of "weather_main" and weather_discription" into factors. As a specific data structure, a factor allows to work with categorical variables.  
+
+In wie weit aktualisiert sich denn der Datensatz? Das sagt der Satz ja aus?!
 In den Datensatz der erzeugt wurde gibt es nun alle 3h ein Wetterupdate.
 Es müssen nun noch die beschreibungen der Wetterdaten von einer Liste zu einem Eintrag in die Tabelle umgewandelt werden.
 ```{r, echo=FALSE}
 wetter_forecast$weather_main <- as.factor(wetter_forecast$weather_main)
+
 wetter_forecast$weather_description <- as.factor(wetter_forecast$weather_description)
+
 wetter_forecast$weather_id <- as.factor(wetter_forecast$weather_id)
+
+str(wetter_forecast$weather_main)
 ```
+
+Bezieht sich dies nicht noch auf den vorigen Schritt? 
+
 Die Daten waren bisher nur Strings. Jetzt kann ich der Auswertung aber nicht einfach gesagt werden das die Strings den
 gleichen Wert repräsentieren obwohl sie gleich heißen. Auch kann man keine logische reihenfolge hinterlegen.
 Aus diesem Grund haben wir hier mögliche Ereignisse als Factor dargestellt.
 
+To illustrate the possible calculation within factors we are using a dot plot diagram by the “ggplot” package.  
+
 ```{r, echo=FALSE}
 str(wetter_forecast$dt)
+#warum dieser Schritt?
 ```
 ```{r, echo=FALSE}
 ggplot(wetter_forecast, aes(anytime(dt), main.temp)) + geom_smooth()
+# Dieser Graf ist ja nur zum Verständis des DF da. Können wir den nicht weg lassen? In Bezug auf forecats und factros hat das ja keine Aussage. 
 ```
 
 ```{r, echo=FALSE}
@@ -75,14 +98,21 @@ ggplot(relig, aes(main.temp, weather_description)) + geom_point()
 
 
 ```
+Due to the use of factors as data structure we now can apply commands of the “forecats” package. Our first example is the fct_reorder() command.
+
+Ich würde hier bei der Temperatur beleiben. Das macht es irgendwie deutlicher. Oder man macht gleich beide. 
+
 ```{r, echo=FALSE}
 ggplot(relig, aes(main.pressure, fct_reorder(weather_description, main.pressure))) +
   geom_point()
 
 ```
+As the secound example take a look at the effect of the fct_infreq() command. 
 
-Hier werden ein paar plots rausgehauen
-!
+fct_infreq(): Reordering a factor by the frequency of values.
+Bei dem plot kommt doch gar nicht die höhe die Häufigkeit zum Ausdruck. Entweder der Plot muss anders oder man gibt noch eine Tabelle mit raus, die angiebt wie hoch die Anzahl der Ausprägung ist. 
+Auch wieder hier: Wenn ein neues Beispiel kommt, würde ich auch oben den Plot mit rein nehmen um einen optischen Vergelich zu sehen. 
+
 
 ```{r, echo=FALSE}
 ggplot(relig, aes(main.pressure, fct_infreq(weather_description))) +
