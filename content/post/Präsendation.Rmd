@@ -4,13 +4,13 @@ output: html_document
 author: "Benjamin Haberkorn, Alexander Kleine"
 date: 2019-10-28T21:13:14-05:00
 categories: ["R"]
-tags: ["R Markdown", "facotrs", "forcats", "bookdown"]
+tags: ["R Markdown", "factors", "forcats", "bookdown"]
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 
-#import all libs
+#Please load all the required packages
 library(owmr)
 library(knitr)
 library(tidyverse)
@@ -19,73 +19,82 @@ library(ggplot2)
 library(anytime)
 library(Hmisc)
 
-#
+#Please use your API key in the following command
 owmr_settings("cc96e5f5fcd56d9fa804f26c4ae1f5c2")
 ```
-Via the package owmr from the open weather map we now get a record with 40 entries for Kiel. The entries show the weather data at a distance of 3h each in the future.
+Via the package "owmr" from the open weather map we now get a record with 40 entries for the city Kiel. The entries show the weather forecast at a interval of 3h which enabls you to make a prediction for the upcoming 5 days. 
 
 ```{r, echo=FALSE}
 wetter_kiel <- get_forecast("Kiel", units = "metric")
 wetter_forecast <- wetter_kiel$list
+
 view(wetter_forecast)
 str(wetter_forecast$weather[5])
 
 ```
-As we see here, the exciting values are still hidden in a list within the dataframe. In order to add the data of the list in detail to the data frame, the record must be gone through and the weather data added to the respective tuple.
+As we can see, the exciting values are still hidden in a list within the data frame. In order to add the data of the list in detail to the data frame, the record must be gone through and the weather data added to the respective tuple.
 
 ```{r, echo=FALSE}
 
 for (i in 1:nrow(wetter_forecast)){
-  wetter_forecast[i, "weather_main"] <- wetter_forecast$weather[][[i]]$main
-  wetter_forecast[i, "weather_description"] <- wetter_forecast$weather[][[i]]$description
-  wetter_forecast[i, "weather_id"] <- wetter_forecast$weather[][[i]]$id
+  
+  wetter_forecast[i, "weather_main"] <- 
+wetter_forecast$weather[][[i]]$main
+
+  wetter_forecast[i, "weather_description"] <-  wetter_forecast$weather[][[i]]$description
+  
+  wetter_forecast[i, "weather_id"] <- 
+wetter_forecast$weather[][[i]]$id
+  
 }
 view(wetter_forecast)
 str(wetter_forecast$weather_main[2])
 
 ```
-In den Datensatz der erzeugt wurde gibt es nun alle 3h ein Wetterupdate.
-Es müssen nun noch die beschreibungen der Wetterdaten von einer Liste zu einem Eintrag in die Tabelle umgewandelt werden.
+For further data manipulations we have to convert the current string data type of "weather_main", "weather_discription" and "weather_id" into factors.
+
+
 ```{r, echo=FALSE}
 wetter_forecast$weather_main <- as.factor(wetter_forecast$weather_main)
+
 wetter_forecast$weather_description <- as.factor(wetter_forecast$weather_description)
+
 wetter_forecast$weather_id <- as.factor(wetter_forecast$weather_id)
-```
-Die Daten waren bisher nur Strings. Jetzt kann ich der Auswertung aber nicht einfach gesagt werden das die Strings den
-gleichen Wert repräsentieren obwohl sie gleich heißen. Auch kann man keine logische reihenfolge hinterlegen.
-Aus diesem Grund haben wir hier mögliche Ereignisse als Factor dargestellt.
 
-```{r, echo=FALSE}
-str(wetter_forecast$dt)
+str(wetter_forecast$weather_main)
 ```
-```{r, echo=FALSE}
-ggplot(wetter_forecast, aes(anytime(dt), main.temp)) + geom_smooth()
-```
+To illustrate the possible calculation within factors we are using a dot plot diagram by the “ggplot” package. Please feel free to get familiar with the following command while switching between "main.temp" and "main.pressure"
 
 ```{r, echo=FALSE}
 
-relig <- wetter_forecast %>%
+weather_df <- wetter_forecast %>%
   group_by(weather_description) %>%
   summarise(
     main.temp = mean(main.temp, na.rm = TRUE),
     main.pressure = mean(main.pressure, na.rm = TRUE),
     n = n()
   )
-ggplot(relig, aes(main.temp, weather_description)) + geom_point()
+ggplot(weather_df, aes(main.temp, weather_description)) + geom_point()
 
 
 ```
+Due to the use of factors as a specific data structure we can now apply commands from the “forecats” package. Our first example is the fct_reorder() command.
+
+--> fct_reorder(): Reordering a factor by another variable
+
 ```{r, echo=FALSE}
-ggplot(relig, aes(main.pressure, fct_reorder(weather_description, main.pressure))) +
+ggplot(weather_df, aes(main.temp, fct_reorder(weather_description, main.temp))) +
   geom_point()
 
 ```
+As the secound example take a look at the effect of the fct_infreq() command. 
 
-Hier werden ein paar plots rausgehauen
-!
+--> fct_infreq(): Reordering a factor by the frequency of values.
+
+
 
 ```{r, echo=FALSE}
-ggplot(relig, aes(main.pressure, fct_infreq(weather_description))) +
+ggplot(weather_df, aes(main.temp, fct_infreq(weather_description))) +
   geom_point()
 
 ```
