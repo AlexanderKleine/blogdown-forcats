@@ -20,7 +20,7 @@ library(anytime)
 library(Hmisc)
 
 #Please use your API key in the following command
-owmr_settings("cc96e5f5fcd56d9fa804f26c4ae1f5c2")
+owmr_settings("")
 ```
 Via the package "owmr" from the open weather map we now get a record with 40 entries for the city Kiel. The entries show the weather forecast at a interval of 3h which enabls you to make a prediction for the upcoming 5 days. 
 
