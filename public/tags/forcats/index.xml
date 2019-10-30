@@ -17,7 +17,8 @@
       <pubDate>Mon, 28 Oct 2019 21:13:14 -0500</pubDate>
       
       <guid>/2019/10/28/forcats-weather/</guid>
-      <description>knitr::opts_chunk$set(echo = TRUE)#Please load all the required packageslibrary(owmr)## owmr 0.8.1## another crazy way to talk to OpenWeatherMap&amp;#39;s API## Documentation: type ?owmr or https://crazycapivara.github.io/owmr/## Issues, notes and bleeding edge: https://github.com/crazycapivara/owmr/## ## It is recommended that you store your api key in an environment variable called OWM_API_KEY.library(knitr)library(tidyverse)## -- Attaching packages --------------------------------------------------------------------- tidyverse 1.2.1 --## v ggplot2 3.2.1 v purrr 0.3.2## v tibble 2.</description>
+      <description>Via the package “owmr” from the open weather map we now get a record with 40 entries for the city Kiel. The entries show the weather forecast at a interval of 3h which enabls you to make a prediction for the upcoming 5 days.
+wetter_kiel &amp;lt;- get_forecast(&amp;quot;Kiel&amp;quot;, units = &amp;quot;metric&amp;quot;)wetter_forecast &amp;lt;- wetter_kiel$listview(wetter_forecast)str(wetter_forecast$weather[5])## List of 1## $ :&amp;#39;data.frame&amp;#39;: 1 obs. of 4 variables:## ..$ id : int 804## .</description>
     </item>
     
   </channel>

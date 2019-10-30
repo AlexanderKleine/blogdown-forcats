@@ -60,7 +60,7 @@
 
   <article class="article">
     
-    <span class="article-duration">3 min read</span>
+    <span class="article-duration">2 min read</span>
     
 
     <h1 class="article-title">Forcats Weather</h1>
@@ -73,45 +73,6 @@
       
 
 
-<pre class="r"><code>knitr::opts_chunk$set(echo = TRUE)
-
-#Please load all the required packages
-library(owmr)</code></pre>
-<pre><code>## owmr 0.8.1
-##    another crazy way to talk to OpenWeatherMap&#39;s API
-##    Documentation: type ?owmr or https://crazycapivara.github.io/owmr/
-##    Issues, notes and bleeding edge: https://github.com/crazycapivara/owmr/
-## 
-## It is recommended that you store your api key in an environment variable called OWM_API_KEY.</code></pre>
-<pre class="r"><code>library(knitr)
-library(tidyverse)</code></pre>
-<pre><code>## -- Attaching packages --------------------------------------------------------------------- tidyverse 1.2.1 --</code></pre>
-<pre><code>## v ggplot2 3.2.1     v purrr   0.3.2
-## v tibble  2.1.3     v dplyr   0.8.3
-## v tidyr   1.0.0     v stringr 1.4.0
-## v readr   1.3.1     v forcats 0.4.0</code></pre>
-<pre><code>## -- Conflicts ------------------------------------------------------------------------ tidyverse_conflicts() --
-## x dplyr::filter()  masks stats::filter()
-## x purrr::flatten() masks owmr::flatten()
-## x dplyr::lag()     masks stats::lag()</code></pre>
-<pre class="r"><code>library(forcats)
-library(ggplot2)
-library(anytime)
-library(Hmisc)</code></pre>
-<pre><code>## Lade nötiges Paket: lattice</code></pre>
-<pre><code>## Lade nötiges Paket: survival</code></pre>
-<pre><code>## Lade nötiges Paket: Formula</code></pre>
-<pre><code>## 
-## Attache Paket: &#39;Hmisc&#39;</code></pre>
-<pre><code>## The following objects are masked from &#39;package:dplyr&#39;:
-## 
-##     src, summarize</code></pre>
-<pre><code>## The following objects are masked from &#39;package:base&#39;:
-## 
-##     format.pval, units</code></pre>
-<pre class="r"><code>#Please use your API key in the following command
-owmr_settings(&quot;cc96e5f5fcd56d9fa804f26c4ae1f5c2&quot;)</code></pre>
-<pre><code>## It is recommended that you store your api key in an environment variable called OWM_API_KEY.</code></pre>
 <p>Via the package “owmr” from the open weather map we now get a record with 40 entries for the city Kiel. The entries show the weather forecast at a interval of 3h which enabls you to make a prediction for the upcoming 5 days.</p>
 <pre class="r"><code>wetter_kiel &lt;- get_forecast(&quot;Kiel&quot;, units = &quot;metric&quot;)
 wetter_forecast &lt;- wetter_kiel$list
@@ -120,10 +81,10 @@ view(wetter_forecast)
 str(wetter_forecast$weather[5])</code></pre>
 <pre><code>## List of 1
 ##  $ :&#39;data.frame&#39;:    1 obs. of  4 variables:
-##   ..$ id         : int 800
-##   ..$ main       : chr &quot;Clear&quot;
-##   ..$ description: chr &quot;clear sky&quot;
-##   ..$ icon       : chr &quot;01n&quot;</code></pre>
+##   ..$ id         : int 804
+##   ..$ main       : chr &quot;Clouds&quot;
+##   ..$ description: chr &quot;overcast clouds&quot;
+##   ..$ icon       : chr &quot;04n&quot;</code></pre>
 <p>As we can see, the exciting values are still hidden in a list within the data frame. In order to add the data of the list in detail to the data frame, the record must be gone through and the weather data added to the respective tuple.</p>
 <pre class="r"><code>for (i in 1:nrow(wetter_forecast)){
   
@@ -147,7 +108,7 @@ wetter_forecast$weather_description &lt;- as.factor(wetter_forecast$weather_desc
 wetter_forecast$weather_id &lt;- as.factor(wetter_forecast$weather_id)
 
 str(wetter_forecast$weather_main)</code></pre>
-<pre><code>##  Factor w/ 3 levels &quot;Clear&quot;,&quot;Clouds&quot;,..: 2 2 2 1 1 1 1 2 2 1 ...</code></pre>
+<pre><code>##  Factor w/ 3 levels &quot;Clear&quot;,&quot;Clouds&quot;,..: 1 2 1 1 2 2 2 2 2 2 ...</code></pre>
 <p>To illustrate the possible calculation within factors we are using a dot plot diagram by the “ggplot” package. Please feel free to get familiar with the following command while switching between “main.temp” and “main.pressure”</p>
 <pre class="r"><code>weather_df &lt;- wetter_forecast %&gt;%
   group_by(weather_description) %&gt;%
@@ -157,17 +118,17 @@ str(wetter_forecast$weather_main)</code></pre>
     n = n()
   )
 ggplot(weather_df, aes(main.temp, weather_description)) + geom_point()</code></pre>
-<p><img src="/post/Präsendation_files/figure-html/unnamed-chunk-4-1.png" width="672" />
+<p><img src="/post/Präsendation_files/figure-html/unnamed-chunk-5-1.png" width="672" />
 Due to the use of factors as a specific data structure we can now apply commands from the “forecats” package. Our first example is the fct_reorder() command.</p>
 <p>–&gt; fct_reorder(): Reordering a factor by another variable</p>
 <pre class="r"><code>ggplot(weather_df, aes(main.temp, fct_reorder(weather_description, main.temp))) +
   geom_point()</code></pre>
-<p><img src="/post/Präsendation_files/figure-html/unnamed-chunk-5-1.png" width="672" />
+<p><img src="/post/Präsendation_files/figure-html/unnamed-chunk-6-1.png" width="672" />
 As the secound example take a look at the effect of the fct_infreq() command.</p>
 <p>–&gt; fct_infreq(): Reordering a factor by the frequency of values.</p>
 <pre class="r"><code>ggplot(weather_df, aes(main.temp, fct_infreq(weather_description))) +
   geom_point()</code></pre>
-<p><img src="/post/Präsendation_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p><img src="/post/Präsendation_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
 
     </div>
   </article>
